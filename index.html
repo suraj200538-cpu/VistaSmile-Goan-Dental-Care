@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VistaSmile: Goan Dental Care  – Panaji-Goa</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#1a4f8a;--blue-dark:#0f2f5a;--blue-light:#e8f0fa;
+  --teal:#2a9d8f;--teal-light:#e6f5f3;
+  --white:#ffffff;--off-white:#f8fbff;--warm-grey:#f2f4f8;
+  --text:#1a2332;--text-muted:#5a6a7e;--border:#dce5f0;
+  --gold:#e8a020;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--off-white);color:var(--text);overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-thumb{background:var(--blue);border-radius:2px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 5%;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:all 0.3s;}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-icon{width:38px;height:38px;background:var(--blue);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+.nav-name{font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:var(--blue-dark);line-height:1;}
+.nav-name span{display:block;font-family:'Inter',sans-serif;font-size:10px;font-weight:400;color:var(--text-muted);letter-spacing:0.12em;text-transform:uppercase;margin-top:2px;}
+.nav-links{display:flex;gap:32px;list-style:none;}
+.nav-links a{font-size:13px;font-weight:400;color:var(--text-muted);text-decoration:none;letter-spacing:0.02em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--blue);}
+.nav-appt{background:var(--blue);color:var(--white);padding:10px 22px;font-size:13px;font-weight:500;text-decoration:none;border-radius:6px;transition:background 0.2s;}
+.nav-appt:hover{background:var(--blue-dark);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 0.9fr;align-items:center;padding:100px 5% 60px;gap:60px;background:var(--white);position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;right:0;width:45%;height:100%;background:var(--blue-light);clip-path:ellipse(100% 80% at 100% 50%);z-index:0;}
+.hero-left{position:relative;z-index:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--teal-light);border:1px solid rgba(42,157,143,0.25);color:var(--teal);font-size:12px;font-weight:500;padding:6px 14px;border-radius:20px;margin-bottom:28px;letter-spacing:0.04em;}
+.hero-badge::before{content:'●';font-size:8px;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(42px,5vw,64px);font-weight:600;line-height:1.1;color:var(--blue-dark);margin-bottom:20px;}
+.hero h1 em{font-style:italic;color:var(--teal);}
+.hero-sub{font-size:16px;font-weight:300;line-height:1.8;color:var(--text-muted);margin-bottom:36px;max-width:480px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
+.btn-primary{background:var(--blue);color:var(--white);padding:14px 28px;font-size:14px;font-weight:500;text-decoration:none;border-radius:8px;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;box-shadow:0 4px 16px rgba(26,79,138,0.25);}
+.btn-primary:hover{background:var(--blue-dark);transform:translateY(-1px);}
+.btn-ghost{background:transparent;color:var(--blue);border:1.5px solid var(--blue);padding:13px 28px;font-size:14px;font-weight:500;text-decoration:none;border-radius:8px;display:inline-flex;align-items:center;gap:8px;transition:all 0.2s;}
+.btn-ghost:hover{background:var(--blue-light);}
+.trust-row{display:flex;gap:24px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text-muted);}
+.trust-icon{width:32px;height:32px;border-radius:6px;background:var(--warm-grey);display:flex;align-items:center;justify-content:center;font-size:15px;}
+
+/* HERO RIGHT */
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;gap:16px;}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:22px 24px;box-shadow:0 4px 20px rgba(26,79,138,0.06);}
+.info-card h3{font-size:13px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:14px;}
+.hours-grid{display:grid;gap:8px;}
+.hour-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;}
+.hour-day{color:var(--text-muted);}
+.hour-time{font-weight:500;color:var(--text);}
+.hour-closed{color:#e05c5c;font-weight:500;}
+.open-badge{display:inline-flex;align-items:center;gap:5px;background:#e6f5f0;color:#1a7a5a;font-size:12px;font-weight:500;padding:4px 10px;border-radius:12px;margin-bottom:14px;}
+.open-badge::before{content:'●';font-size:8px;}
+.rating-card{background:var(--blue-dark);border-radius:12px;padding:22px 24px;color:var(--white);}
+.rating-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;}
+.rating-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:600;color:var(--white);line-height:1;}
+.rating-stars{color:var(--gold);font-size:18px;letter-spacing:2px;margin-top:4px;}
+.rating-source{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;}
+.rating-bar-label{font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:6px;}
+.rating-bar{height:4px;background:rgba(255,255,255,0.15);border-radius:2px;margin-bottom:4px;}
+.rating-bar-fill{height:4px;background:var(--gold);border-radius:2px;}
+
+/* SERVICES */
+#services{padding:90px 5%;background:var(--off-white);}
+.section-header{margin-bottom:52px;}
+.section-tag{font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,46px);font-weight:600;color:var(--blue-dark);line-height:1.15;}
+.section-title em{font-style:italic;color:var(--teal);}
+.section-sub{font-size:15px;color:var(--text-muted);line-height:1.7;margin-top:12px;max-width:560px;}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;}
+.svc-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:28px;transition:all 0.25s;position:relative;overflow:hidden;}
+.svc-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(26,79,138,0.1);border-color:rgba(26,79,138,0.2);}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform 0.3s;}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-icon{width:48px;height:48px;border-radius:10px;background:var(--blue-light);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;}
+.svc-card h3{font-size:16px;font-weight:600;color:var(--blue-dark);margin-bottom:8px;}
+.svc-card p{font-size:13px;color:var(--text-muted);line-height:1.7;}
+
+/* REVIEWS */
+#reviews{padding:90px 5%;background:var(--blue-dark);}
+#reviews .section-tag{color:var(--teal);}
+#reviews .section-title{color:var(--white);}
+#reviews .section-sub{color:rgba(255,255,255,0.5);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px;}
+.rev-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;transition:background 0.2s;}
+.rev-card:hover{background:rgba(255,255,255,0.09);}
+.rev-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px;}
+.rev-text{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;font-weight:400;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:20px;}
+.rev-author{display:flex;align-items:center;gap:12px;}
+.rev-av{width:38px;height:38px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--white);flex-shrink:0;}
+.rev-name{font-size:14px;font-weight:500;color:var(--white);}
+.rev-sub{font-size:12px;color:rgba(255,255,255,0.4);}
+.google-tag{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,0.3);margin-top:6px;}
+
+/* DOCTOR */
+#doctor{padding:90px 5%;background:var(--white);}
+.doctor-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.doctor-visual{background:var(--blue-light);border-radius:16px;padding:48px 32px;text-align:center;position:relative;}
+.doctor-visual::after{content:'';position:absolute;bottom:-12px;right:-12px;width:100%;height:100%;border:1px solid rgba(26,79,138,0.15);border-radius:16px;z-index:-1;}
+.doc-icon{font-size:64px;margin-bottom:16px;display:block;}
+.doc-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:var(--blue-dark);margin-bottom:4px;}
+.doc-title{font-size:14px;color:var(--teal);font-weight:500;margin-bottom:16px;}
+.doc-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+.doc-stat{background:var(--white);border-radius:8px;padding:14px;text-align:center;border:1px solid var(--border);}
+.doc-stat-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--blue);line-height:1;}
+.doc-stat-label{font-size:11px;color:var(--text-muted);margin-top:3px;}
+.doctor-info .section-tag{margin-bottom:10px;}
+.doctor-info .section-title{margin-bottom:20px;}
+.doctor-desc{font-size:15px;color:var(--text-muted);line-height:1.9;margin-bottom:32px;}
+.creds{display:flex;flex-direction:column;gap:14px;}
+.cred-row{display:flex;gap:14px;align-items:flex-start;}
+.cred-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;margin-top:6px;}
+.cred-row p{font-size:14px;color:var(--text-muted);line-height:1.6;}
+.cred-row strong{color:var(--text);font-weight:500;}
+
+/* CONTACT */
+#contact{padding:90px 5%;background:var(--warm-grey);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:60px;align-items:start;}
+.contact-info .section-title{margin-bottom:20px;}
+.contact-desc{font-size:15px;color:var(--text-muted);line-height:1.8;margin-bottom:36px;}
+.contact-items{display:flex;flex-direction:column;gap:18px;}
+.ci-row{display:flex;gap:14px;align-items:flex-start;}
+.ci-icon{width:42px;height:42px;border-radius:8px;background:var(--white);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.ci-row h4{font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:3px;}
+.ci-row p{font-size:14px;color:var(--text);}
+.ci-row a{color:var(--blue);text-decoration:none;}
+.map-ph{height:150px;background:var(--blue-light);border-radius:8px;border:1px dashed rgba(26,79,138,0.2);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:13px;margin-top:24px;}
+.appt-form{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:40px;box-shadow:0 8px 32px rgba(26,79,138,0.06);}
+.appt-form h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:600;color:var(--blue-dark);margin-bottom:4px;}
+.appt-form>p{font-size:13px;color:var(--text-muted);margin-bottom:28px;}
+.fg{margin-bottom:16px;}
+.fg label{display:block;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:7px;}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;color:var(--text);background:var(--off-white);outline:none;transition:border-color 0.2s;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--blue);background:var(--white);}
+.fg textarea{height:80px;resize:none;}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-btn{width:100%;background:var(--blue);color:var(--white);padding:14px;border:none;border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all 0.2s;box-shadow:0 4px 14px rgba(26,79,138,0.2);margin-top:4px;}
+.form-btn:hover{background:var(--blue-dark);}
+.form-note{font-size:12px;color:var(--text-muted);text-align:center;margin-top:10px;}
+
+/* WHATSAPP */
+.wa-btn{position:fixed;bottom:28px;right:28px;z-index:999;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.2s;}
+.wa-btn:hover{transform:scale(1.1);}
+
+/* FOOTER */
+footer{background:var(--blue-dark);padding:28px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+footer p{font-size:12px;color:rgba(255,255,255,0.35);}
+footer strong{color:rgba(255,255,255,0.7);}
+.footer-logo{font-family:'Playfair Display',serif;font-size:16px;color:rgba(255,255,255,0.5);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.hero-left>*{animation:fadeUp 0.6s ease both;}
+.hero-badge{animation-delay:0.05s;}.hero h1{animation-delay:0.15s;}.hero-sub{animation-delay:0.25s;}.hero-actions{animation-delay:0.35s;}.trust-row{animation-delay:0.45s;}
+
+/* MOBILE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding-top:90px;}
+  .hero::before{display:none;}
+  .hero-right{display:none;}
+  .nav-links{display:none;}
+  .doctor-grid,.contact-grid{grid-template-columns:1fr;gap:36px;}
+  .doctor-visual{display:none;}
+  .fg-row{grid-template-columns:1fr;}
+  footer{justify-content:center;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-icon">🦷</div>
+    <div class="nav-name">VistaSmile: Goan Dental Care<span>Panaji-Goa</span></div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#doctor">Our Doctor</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-appt">Book Appointment</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Now Accepting New Patients</div>
+    <h1>Painless Dental Care<br>You Can <em>Trust.</em></h1>
+    <p class="hero-sub">Expert dental treatments by experienced doctors. Root canal, implants, braces, and smile makeovers — all under one roof in Panaji-Goa.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">📅 Book Appointment</a>
+      <a href="https://wa.me/8755180345" class="btn-ghost" target="_blank">💬 WhatsApp Us</a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-icon">⭐</div>4.9 Google Rating</div>
+      <div class="trust-item"><div class="trust-icon">👥</div>2000+ Patients</div>
+      <div class="trust-item"><div class="trust-icon">🏥</div>15+ Years Experience</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="info-card">
+      <div class="open-badge">Open Today</div>
+      <h3>Clinic Hours</h3>
+      <div class="hours-grid">
+        <div class="hour-row"><span class="hour-day">Mon – Sat</span><span class="hour-time">10:00 AM – 1:00 PM · 5:00 – 8:00 PM</span></div>
+        <div class="hour-row"><span class="hour-day">Sunday</span><span class="hour-closed">Closed</span></div>
+      </div>
+    </div>
+    <div class="rating-card">
+      <div class="rating-top">
+        <div>
+          <div class="rating-num">4.9</div>
+          <div class="rating-stars">★★★★★</div>
+          <div class="rating-source">Based on 400+ Google Reviews</div>
+        </div>
+        <span style="font-size:28px;">🔵</span>
+      </div>
+      <div class="rating-bar-label">Patient Satisfaction</div>
+      <div class="rating-bar"><div class="rating-bar-fill" style="width:98%"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header">
+    <div class="section-tag">What We Treat</div>
+    <h2 class="section-title">Complete <em>Dental Care</em></h2>
+    <p class="section-sub">From routine checkups to advanced treatments — we handle everything with precision, care, and zero pain wherever possible.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card"><div class="svc-icon">🦷</div><h3>Root Canal Treatment</h3><p>Painless RCT using modern rotary techniques. Save your natural tooth — no discomfort, fast recovery.</p></div>
+    <div class="svc-card"><div class="svc-icon">🔩</div><h3>Dental Implants</h3><p>Permanent tooth replacement that looks and feels natural. Titanium implants with 15+ year guarantee.</p></div>
+    <div class="svc-card"><div class="svc-icon">😁</div><h3>Braces & Aligners</h3><p>Metal braces, ceramic braces, and clear aligners for children and adults. Straighten your smile comfortably.</p></div>
+    <div class="svc-card"><div class="svc-icon">✨</div><h3>Teeth Cleaning & Whitening</h3><p>Professional scaling, polishing, and whitening to remove stains and give you a brighter, healthier smile.</p></div>
+    <div class="svc-card"><div class="svc-icon">👑</div><h3>Crowns & Bridges</h3><p>High-quality ceramic crowns and bridges that match your natural teeth perfectly in color and shape.</p></div>
+    <div class="svc-card"><div class="svc-icon">🧒</div><h3>Paediatric Dentistry</h3><p>Gentle, child-friendly dental care. We make kids comfortable and turn dental visits into positive experiences.</p></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-header">
+    <div class="section-tag">Patient Stories</div>
+    <h2 class="section-title">What Our <em>Patients</em> Say</h2>
+    <p class="section-sub">Real reviews from real patients across Panaji-Goa — verified on Google.</p>
+  </div>
+  <div class="reviews-grid">
+    <div class="rev-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"My front tooth was damaged for many years. The doctor treated it with great care and perfection. She talks so nicely and makes you feel comfortable throughout. Got my smile back!"</p>
+      <div class="rev-author">
+        <div class="rev-av">SM</div>
+        <div><div class="rev-name">Sanjay Misal</div><div class="rev-sub">Root Canal Patient</div></div>
+      </div>
+      <div class="google-tag">🔵 Verified Google Review</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"I had a very complicated wisdom tooth extraction. The procedure was smooth and handled with great care. The surgery and stitching were done very neatly. Highly recommended for quality dental care."</p>
+      <div class="rev-author">
+        <div class="rev-av">RP</div>
+        <div><div class="rev-name">Rekha Patil</div><div class="rev-sub">Extraction Patient</div></div>
+      </div>
+      <div class="google-tag">🔵 Verified Google Review</div>
+    </div>
+    <div class="rev-card">
+      <div class="rev-stars">★★★★★</div>
+      <p class="rev-text">"I was super anxious as it was my first dental visit but the doctor made me feel comfortable and explained every detail of the procedure clearly. Staff is friendly and cooperative. Highly recommended!"</p>
+      <div class="rev-author">
+        <div class="rev-av">NK</div>
+        <div><div class="rev-name">Neha Kulkarni</div><div class="rev-sub">First-Time Patient</div></div>
+      </div>
+      <div class="google-tag">🔵 Verified Google Review</div>
+    </div>
+  </div>
+</section>
+
+<!-- DOCTOR -->
+<section id="doctor">
+  <div class="doctor-grid">
+    <div class="doctor-visual">
+      <span class="doc-icon">👨‍⚕️</span>
+      <div class="doc-name">  Dr. Akhilesh</div>
+      <div class="doc-title">BDS, MDS – Oral Surgery Specialist</div>
+      <p style="font-size:13px;color:var(--text-muted);line-height:1.6;">15+ years of experience in advanced dental procedures across Panaji-Goa.</p>
+      <div class="doc-stats">
+        <div class="doc-stat"><div class="doc-stat-num">15+</div><div class="doc-stat-label">Years Exp.</div></div>
+        <div class="doc-stat"><div class="doc-stat-num">2000+</div><div class="doc-stat-label">Patients</div></div>
+        <div class="doc-stat"><div class="doc-stat-num">4.9★</div><div class="doc-stat-label">Rating</div></div>
+        <div class="doc-stat"><div class="doc-stat-num">100%</div><div class="doc-stat-label">Painless</div></div>
+      </div>
+    </div>
+    <div class="doctor-info">
+      <div class="section-tag">Meet The Doctor</div>
+      <h2 class="section-title">Expert Care,<br><em>Gentle Hands.</em></h2>
+      <p class="doctor-desc">With over 15 years of experience treating patients across Panaji-Goa, our doctor combines technical expertise with a calm, patient-friendly approach that puts even the most anxious patients at ease.</p>
+      <div class="creds">
+        <div class="cred-row"><div class="cred-dot"></div><p><strong>BDS</strong> from a leading Pune dental college with distinction</p></div>
+        <div class="cred-row"><div class="cred-dot"></div><p><strong>MDS in Oral Surgery</strong> — specialised in complex extractions and implants</p></div>
+        <div class="cred-row"><div class="cred-dot"></div><p>Trained in <strong>painless RCT techniques</strong> using modern rotary systems</p></div>
+        <div class="cred-row"><div class="cred-dot"></div><p>Member of the <strong>Indian Dental Association</strong> (IDA), Pune chapter</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="section-tag">Visit Us</div>
+      <h2 class="section-title">Book Your <em>Appointment</em></h2>
+      <p class="contact-desc">Fill the form or WhatsApp us. We'll confirm your slot within 1 hour during clinic hours.</p>
+      <div class="contact-items">
+        <div class="ci-row"><div class="ci-icon">📍</div><div><h4>Address</h4><p>oa 403005H.No.: 259/A, Shop D First Floor, St. Caetano Waddo Mesta Bhatt, opp. Bappa Hotel, Merces,<br> Panaji, Goa 403005</p></div></div>
+        <div class="ci-row"><div class="ci-icon">📞</div><div><h4>Phone</h4><p>+918755180345</p></div></div>
+        <div class="ci-row"><div class="ci-icon">⏰</div><div><h4>Timings</h4><p>Mon–Sat: 10 AM–1 PM · 5–8 PM<br>Sunday: Closed</p></div></div>
+        <div class="ci-row"><div class="ci-icon">💬</div><div><h4>WhatsApp</h4><p><a href="https://wa.me/8755180345">Book on WhatsApp →</a></p></div></div>
+      </div>
+      <div class="map-ph">📍 Google Maps embed goes here</div>
+    </div>
+    <div class="appt-form">
+      <h3>Book Appointment</h3>
+      <p>Confirm your slot — we'll call back within 1 hour</p>
+      <div class="fg"><label>Patient Name</label><input type="text" placeholder="Full name" id="f-name"></div>
+      <div class="fg-row">
+        <div class="fg"><label>WhatsApp Number</label><input type="tel" placeholder="+91 XXXXX XXXXX" id="f-phone"></div>
+        <div class="fg"><label>Preferred Date</label><input type="date" id="f-date"></div>
+      </div>
+      <div class="fg"><label>Treatment Needed</label>
+        <select id="f-service">
+          <option value="">Select treatment</option>
+          <option>Routine Checkup / Cleaning</option>
+          <option>Root Canal Treatment (RCT)</option>
+          <option>Dental Implant</option>
+          <option>Braces / Aligners</option>
+          <option>Tooth Extraction</option>
+          <option>Crowns & Bridges</option>
+          <option>Teeth Whitening</option>
+          <option>Paediatric / Child Dentistry</option>
+          <option>Other / Not Sure</option>
+        </select>
+      </div>
+      <div class="fg"><label>Message (Optional)</label><textarea placeholder="Describe your issue or preferred timing..." id="f-msg"></textarea></div>
+      <button class="form-btn" onclick="submitForm()">Confirm Appointment →</button>
+      <p class="form-note">No advance payment · Free first consultation for new patients</p>
+    </div>
+  </div>
+</section>
+
+<a href="https://wa.me/8755180345?text=Hi%2C%20I%20want%20to%20book%20a%20dental%20appointment" class="wa-btn" target="_blank">💬</a>
+
+<footer>
+  <div class="footer-logo">Dr. Akhilesh </div>
+  <p>© 2025 <strong>Dr. Akhilesh </strong> · Panaji-Goa, Pune</p>
+  <p>Website by <strong>AutomationOps</strong></p>
+</footer>
+
+<script>
+function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const phone=document.getElementById('f-phone').value.trim();
+  const service=document.getElementById('f-service').value;
+  const date=document.getElementById('f-date').value;
+  const msg=document.getElementById('f-msg').value;
+  if(!name||!phone||!service){alert('Please fill Patient Name, Phone and Treatment.');return;}
+  const webhookURL='YOUR_N8N_WEBHOOK_URL_HERE';
+  const payload={name,phone,service,date,message:msg,timestamp:new Date().toISOString(),source:'dental-website'};
+  fetch(webhookURL,{method:'POST',headers:{'Content-Type':'application/json','ngrok-skip-browser-warning':'true'},body:JSON.stringify(payload)})
+  .then(r=>{if(r.ok){alert('✅ Appointment request received! We will call you within 1 hour.');}else{throw new Error();}})
+  .catch(()=>{
+    const m=encodeURIComponent('Appointment Request:\nName: '+name+'\nPhone: '+phone+'\nTreatment: '+service+'\nDate: '+date);
+    window.open('https://wa.me/8755180345?text='+m,'_blank');
+  });
+}
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.padding=window.scrollY>40?'13px 5%':'18px 5%';
+});
+</script>
+</body>
+</html>
